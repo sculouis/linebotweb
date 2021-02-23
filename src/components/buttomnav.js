@@ -7,8 +7,10 @@ import RestoreIcon from "@material-ui/icons/Restore";
 import AccountBoxRoundedIcon from "@material-ui/icons/AccountBoxRounded";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import StorefrontIcon from "@material-ui/icons/Storefront";
 import About from "./about";
 import Favorite from "./favorite";
+import ProductList from "./productlist";
 
 const useStyles = makeStyles({
   stickToBottom: {
@@ -35,10 +37,10 @@ export default function ButtomNav() {
         className={classes.stickToBottom}
       >
         <BottomNavigationAction
-          label="關於我"
-          icon={<AccountBoxRoundedIcon />}
+          label="商品"
+          icon={<StorefrontIcon />}
           component={Link}
-          to="/about"
+          to="/productlist"
         />
         <BottomNavigationAction
           label="我的最愛"
@@ -46,7 +48,12 @@ export default function ButtomNav() {
           component={Link}
           to="favorite"
         />
-        <BottomNavigationAction label="靠近" icon={<LocationOnIcon />} />
+        <BottomNavigationAction
+          label="關於我"
+          icon={<AccountBoxRoundedIcon />}
+          component={Link}
+          to="about"
+        />
       </BottomNavigation>
       <Switch>
         <Route path="/about">
@@ -54,6 +61,9 @@ export default function ButtomNav() {
         </Route>
         <Route path="/favorite">
           <Favorite />
+        </Route>
+        <Route path="/productlist">
+          <ProductList />
         </Route>
       </Switch>
     </Router>
