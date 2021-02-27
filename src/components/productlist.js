@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductList() {
   var classes = useStyles();
-  var [products, setProducts] = useState([
+  var [products] = useState([
     { name: "小熊", photo: "bear.jpg" },
     { name: "智能玩具", photo: "ball.png" },
     { name: "玩具汽車", photo: "car.jpg" },

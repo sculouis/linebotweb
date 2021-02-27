@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -29,11 +29,6 @@ export default function CardProduct({ item }) {
   const [open, setOpen] = React.useState(false);
 
   const dispatch = useDispatch();
-
-  const incrementHandler = useCallback(
-    () => dispatch({ type: "INCREMENTHANDLER" }),
-    [dispatch]
-  );
 
   const handleClickOpen = () => {
     setOpen(true);
