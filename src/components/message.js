@@ -5,6 +5,8 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   listitem: {
@@ -14,13 +16,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "5px",
     paddingBottom: "50px",
     flexGrow: 1
+  },
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: "#fff"
   }
 }));
 
 export default function MessageLog() {
   const classes = useStyles();
   const [message, setMessage] = useState([]);
+  const [open, setOpen] = React.useState(false);
   async function fetchMessageLog() {
+    setOpen(true);
     const response = await fetch(
       "https://linebothook.herokuapp.com/messagelog"
     );
@@ -32,6 +40,7 @@ export default function MessageLog() {
     fetchMessageLog().then((data) => {
       setMessage(data);
       console.log(data);
+      setOpen(false);
     });
   }, []);
 
@@ -52,6 +61,9 @@ export default function MessageLog() {
             </>
           ))}
         </List>
+        <Backdrop className={classes.backdrop} open={open}>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       </Container>
     </div>
   );
