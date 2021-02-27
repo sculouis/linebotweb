@@ -6,7 +6,8 @@ import CardProduct from "./cardproduct";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "5px",
+    marginTop: "5px",
+    paddingBottom: "50px",
     flexGrow: 1
   }
 }));
@@ -21,10 +22,10 @@ export default function ProductList() {
   ]);
   return (
     <div className={classes.root}>
-      <Container>
+      <Container fixed>
         <Grid container spacing={2}>
-          {products.map((item) => (
-            <Grid item xs={12} md={4}>
+          {products.map((item, index) => (
+            <Grid key={index} item xs={12} md={4}>
               <CardProduct item={item} />
             </Grid>
           ))}
