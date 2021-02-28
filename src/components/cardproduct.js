@@ -27,6 +27,7 @@ const useStyles = makeStyles({
 export default function CardProduct({ item }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [myitem] = React.useState(item);
 
   const dispatch = useDispatch();
 
@@ -39,7 +40,7 @@ export default function CardProduct({ item }) {
   };
 
   const handleAccept = () => {
-    dispatch({ type: "INCREMENTHANDLER" });
+    dispatch({ type: "ADDPRODUCT", text:myitem});
     setOpen(false);
   };
 

@@ -15,17 +15,17 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductList() {
   var classes = useStyles();
   var [products] = useState([
-    { name: "小熊", photo: "bear.jpg" },
-    { name: "智能玩具", photo: "ball.png" },
-    { name: "玩具汽車", photo: "car.jpg" },
-    { name: "玩具房子", photo: "house.jpg" }
+    { id:1, name: "小熊", photo: "bear.jpg" },
+    { id:2, name: "智能玩具", photo: "ball.png" },
+    { id:3, name: "玩具汽車", photo: "car.jpg" },
+    { id:4, name: "玩具房子", photo: "house.jpg" }
   ]);
   return (
     <div className={classes.root}>
       <Container fixed>
         <Grid container spacing={2}>
-          {products.map((item, index) => (
-            <Grid key={index} item xs={12} md={4}>
+          {products.map((item) => (
+            <Grid key={item.id} item xs={12} md={4}>
               <CardProduct item={item} />
             </Grid>
           ))}

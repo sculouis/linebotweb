@@ -7,6 +7,7 @@ import About from "./components/about";
 import MyOrders from "./components/myorders";
 import ProductList from "./components/productlist";
 import MessageLog from "./components/message";
+import Cart from "./components/cart";
 
 export default function App() {
   return (
@@ -26,6 +27,9 @@ export default function App() {
           </Route>
           <Route path="/message">
             <MessageLog />
+          </Route>
+          <Route path="/cart">
+            <Cart />
           </Route>
         </Switch>
       </Router>

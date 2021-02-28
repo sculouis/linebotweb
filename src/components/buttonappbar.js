@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -79,10 +79,15 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [count, setCount] = React.useState(0);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const number = useSelector((state) => state.number);
+  const datas = useSelector((state) => state.productsReducer);
+
+  useEffect(()=>{
+    setCount(datas.length)
+  },[datas])
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -122,7 +127,7 @@ export default function ButtonAppBar() {
     >
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={number} color="secondary">
+          <Badge badgeContent={count} color="secondary">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -147,8 +152,9 @@ export default function ButtonAppBar() {
             測試網站
           </Typography>
           <div className={classes.grow} />
-          <IconButton aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={number} color="secondary">
+          <IconButton aria-label="show 4 new mails" color="inherit" component={Link}
+            to="/cart">
+            <Badge badgeContent={count} color="secondary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
