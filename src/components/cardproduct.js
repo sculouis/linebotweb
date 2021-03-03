@@ -40,7 +40,7 @@ export default function CardProduct({ item }) {
   };
 
   const handleAccept = () => {
-    dispatch({ type: "ADDPRODUCT", text:myitem});
+    dispatch({ type: "ADDPRODUCT", text: myitem });
     setOpen(false);
   };
 
@@ -56,6 +56,9 @@ export default function CardProduct({ item }) {
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {item.name}
+            </Typography>
+            <Typography variant="body1" color="textSecondary" component="p">
+              單價:{item.price}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               這個商品將來可以做什麼呢? 目前可以做什麼

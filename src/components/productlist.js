@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductList() {
   var classes = useStyles();
   var [products] = useState([
-    { id:1, name: "小熊", photo: "bear.jpg" },
-    { id:2, name: "智能玩具", photo: "ball.png" },
-    { id:3, name: "玩具汽車", photo: "car.jpg" },
-    { id:4, name: "玩具房子", photo: "house.jpg" }
+    { id: 1, name: "小熊", photo: "bear.jpg", price: 200 },
+    { id: 2, name: "智能玩具", photo: "ball.png", price: 203 },
+    { id: 3, name: "玩具汽車", photo: "car.jpg", price: 500 },
+    { id: 4, name: "玩具房子", photo: "house.jpg", price: 600 }
   ]);
   return (
     <div className={classes.root}>
